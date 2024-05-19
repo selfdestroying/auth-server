@@ -1,16 +1,23 @@
 {
-  "name": "authserver",
-  "version": "1.0.0",
-  "main": "index.js",
-  "type": "module",
-  "scripts": {
-    "dev": "nodemon index.js"
-  },
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "express": "^4.19.2",
-    "nodemon": "^3.1.0"
-  }
+	"name": "authserver",
+	"version": "1.0.0",
+	"main": "index.ts",
+	"scripts": {
+		"dev": "nodemon src/index.ts"
+	},
+	"author": "",
+	"license": "ISC",
+	"description": "",
+	"dependencies": {
+		"cookie-parser": "^1.4.6",
+		"ejs": "^3.1.10",
+		"express": "^4.19.2",
+		"nodemon": "^3.1.0"
+	},
+	"devDependencies": {
+		"@types/cookie-parser": "^1.4.7",
+		"@types/express": "^4.17.21",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.4.5"
+	}
 }
