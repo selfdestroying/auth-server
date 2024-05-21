@@ -1,0 +1,30 @@
+body {
+	background-color: #333;
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	line-height: 1.5;
+	color: #fff;
+}
+
+button {
+	cursor: pointer;
+	padding: 0.5rem 1rem;
+	font-size: 1rem;
+	border: none;
+	background-color: #007bff;
+	color: #fff;
+	border-radius: 5px;
+}
+
+button:hover {
+	background-color: #0069d9;
+}
+
+#username {
+	font-weight: bold;
+	color: rgb(160, 81, 81);
+}
+
+.error {
+	color: red;
+}

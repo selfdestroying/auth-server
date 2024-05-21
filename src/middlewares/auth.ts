@@ -10,10 +10,12 @@ export const authMiddleware = (
 	res: Response,
 	next: NextFunction
 ) => {
-	const user = req.cookies.auth
+	const cookies = req.cookies
+	const user = cookies.auth
+	console.log(user)
 	if (user) {
-		next()
+		res.status(200).render('index', { username: user.username })
 	} else {
-		res.status(302).redirect('/auth')
+		res.status(302).render('auth', { status: '' })
 	}
 }

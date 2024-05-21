@@ -9,13 +9,13 @@ class UserService {
 	async login(username: string, password: string) {
 		const user = users.find(el => el.username === username)
 		if (!user) {
-			return
+			throw Error('user not found')
 		}
 
 		const hashedPassword = await passwordToHash(password)
 
 		if (user.password != hashedPassword) {
-			return
+			throw Error('invalid credentials')
 		}
 
 		return user

@@ -5,7 +5,7 @@
 	"scripts": {
 		"dev": "nodemon src/index.ts"
 	},
-	"author": "",
+	"author": "Maxim Filippov <max.f99@yandex.ru>",
 	"license": "ISC",
 	"description": "",
 	"dependencies": {
@@ -19,5 +19,6 @@
 		"@types/express": "^4.17.21",
 		"ts-node": "^10.9.2",
 		"typescript": "^5.4.5"
-	}
+	},
+	"repository": "git@github.com:selfdestroying/auth-server.git"
 }
