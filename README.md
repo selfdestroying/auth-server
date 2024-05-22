@@ -3,8 +3,12 @@
 
 <img src="public/main_page.png" width="49%" > <img src="public/auth_page.png" width="49%" >
 
-</br>
-This is a simple Express server with EJS templates for authentication. I have created this for the purpose of practice. I would appreciate any suggestions for improvement.
+
+>[!IMPORTANT]
+>I have created this for the purpose of practice, not for production. 
+
+
+
 
 ## Features
 
@@ -23,3 +27,6 @@ npm i | yarn
 ```bash
 npm run dev | yarn dev
 ```
+### Other
+>[!TIP]
+>I would appreciate any suggestions for improvement. :heart:
