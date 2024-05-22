@@ -11,8 +11,8 @@ class UserController {
 		try {
 			const { username, password } = req.body
 			const user = await UserService.login(username, password)
-			res.cookie('auth', user)
 
+			req.session.user = user
 			return res.status(301).redirect('/')
 		} catch (error) {
 			return res.render('auth', {
@@ -23,15 +23,22 @@ class UserController {
 	}
 
 	async register(req: Request, res: Response) {
-		const { username, password } = req.body
-		const user = await UserService.register(username, password)
-		if (!user) {
-			return res
-				.status(401)
-				.send({ status: 'error', message: 'invalid credentials' })
-		}
+		try {
+			const { username, password } = req.body
+			const user = await UserService.register(username, password)
 
-		res.cookie('auth', user)
+			res.cookie('auth', user)
+			return res.status(301).redirect('/')
+		} catch (error) {
+			return res.render('auth', {
+				status: 'error',
+				message: (error as Error).message,
+			})
+		}
+	}
+
+	async logout(req: Request, res: Response) {
+		req.session.destroy(() => console.log('User logged out'))
 		return res.status(301).redirect('/')
 	}
 }

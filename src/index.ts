@@ -1,5 +1,6 @@
 import cookieParser from 'cookie-parser'
 import express from 'express'
+import session from 'express-session'
 
 import { authMiddleware } from './middlewares/auth'
 import { loggingMiddleware } from './middlewares/logging'
@@ -13,6 +14,13 @@ app.use(express.json())
 app.use(cookieParser())
 app.use(express.static('styles'))
 app.use(express.urlencoded({ extended: true }))
+app.use(
+	session({
+		secret: 'secret',
+		resave: false,
+		saveUninitialized: true,
+	})
+)
 app.use(userRouter)
 
 app.get('/', authMiddleware, (req, res) => {

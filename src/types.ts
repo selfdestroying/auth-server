@@ -4,3 +4,9 @@ export interface User {
 	username: string
 	password: string
 }
+
+declare module 'express-session' {
+	interface SessionData {
+		user: User
+	}
+}

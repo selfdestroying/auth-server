@@ -1,4 +1,5 @@
 import { users } from '../database'
+import ApiError from '../exceptions/api_error'
 import { passwordToHash } from '../utils/hashing'
 
 class UserService {
@@ -9,13 +10,13 @@ class UserService {
 	async login(username: string, password: string) {
 		const user = users.find(el => el.username === username)
 		if (!user) {
-			throw Error('user not found')
+			throw ApiError.BadRequest('User not found')
 		}
 
 		const hashedPassword = await passwordToHash(password)
 
 		if (user.password != hashedPassword) {
-			throw Error('invalid credentials')
+			throw ApiError.BadRequest('Invalid password')
 		}
 
 		return user
@@ -25,7 +26,7 @@ class UserService {
 		const user = users.find(el => el.username === username)
 
 		if (user) {
-			return
+			throw ApiError.BadRequest('User already exists')
 		}
 
 		const hashedPassword = await passwordToHash(password)
